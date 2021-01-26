@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\CursoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,16 +18,13 @@ use App\Http\Controllers\CursoController;
 
 Route::get('/', HomeController::class);
 
-Route::get('cursos',[CursoController::class, 'index']);
-Route::get('cursos/create',[CursoController::class, 'create']);
-Route::get('cursos/{curso}',[CursoController::class, 'show']);
+Route::get('users',[UserController::class, 'index'])->name('users.index');
+Route::get('users/create',[UserController::class, 'create'])->name('users.create');
+Route::get('users/{id}',[UserController::class, 'show'])->name('users.show');
+Route::get('blogs',[BlogController::class, 'index'])->name('blogs.index');
+Route::get('blogs/create',[BlogController::class, 'create'])->name('blogs.create');
+Route::get('blogs/details',[BlogController::class, 'details'])->name('blogs.details');
+Route::get('contact',[ContactController::class, 'index'])->name('contact');
 
-Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria=null) {
-    if ($categoria) {
-        return "Bienvenido a al curso: $curso, de la categoria: $categoria";
 
-    } else {
-        return "Bienvenido a al curso: $curso";
 
-    }
-});
