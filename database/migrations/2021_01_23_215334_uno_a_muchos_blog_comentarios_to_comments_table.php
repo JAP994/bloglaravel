@@ -17,7 +17,7 @@ class UnoAMuchosBlogComentariosToCommentsTable extends Migration
             $table->bigInteger('blog_id')->after('id');
             $table->foreign('blog_id')->references('id')->on('blogs')
             ->onDelete('cascade')
-            ->onUpdate('cascade')->after('nameUser');
+            ->onUpdate('cascade');
         });
     }
 

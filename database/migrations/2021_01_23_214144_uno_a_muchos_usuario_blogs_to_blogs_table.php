@@ -17,7 +17,7 @@ class UnoAMuchosUsuarioBlogsToBlogsTable extends Migration
             $table->bigInteger('user_id')->after('id');
             $table->foreign('user_id')->references('id')->on('users')
             ->onDelete('cascade')
-            ->onUpdate('cascade')->after('name');
+            ->onUpdate('cascade');
         });
     }
 
